@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import Header from "./Header";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-     Hello, samurai! Let's go!
+     <Header/>
     </div>
   );
 }
