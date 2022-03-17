@@ -12,3 +12,7 @@
     /*grid-gap: 10px;*/
 }
 
+.wrapper_content {
+    grid-area: c;
+    background-color: aqua;
+}
