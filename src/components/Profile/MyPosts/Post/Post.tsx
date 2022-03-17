@@ -6,7 +6,7 @@ type PostTypeProps ={
     likecount: number;
 }
 
-const Post = (props:PostTypeProps) => {
+export const Post = (props:PostTypeProps) => {
     return (
         <div className={s.item}>
             <img src="https://cdn1.flamp.ru/133937ff13551fbdbb0a7bc71ea2e0f5.jpeg"/>
@@ -18,5 +18,3 @@ const Post = (props:PostTypeProps) => {
         </div>
     )
 }
-
-export default Post;
