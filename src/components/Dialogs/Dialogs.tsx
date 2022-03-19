@@ -11,7 +11,7 @@ type MessagePropsType = {
     message: string
 }
 
-const DialogItem = (props:any) => {
+const DialogItem = (props: any) => {
 
     let path = "/dialogs/" + props.id;
 
@@ -22,7 +22,7 @@ const DialogItem = (props:any) => {
     )
 }
 
-const Message = (props:any) => {
+const Message = (props: any) => {
     return (
         <div className={s.message}>{props.message}</div>
     )
@@ -30,7 +30,7 @@ const Message = (props:any) => {
 
 export const Dialogs = () => {
 
-    let dialogsData = [
+    let dialogs = [
         {id: 1, name: "Dimych"},
         {id: 2, name: "Andrey"},
         {id: 3, name: "Sveta"},
@@ -38,7 +38,7 @@ export const Dialogs = () => {
         {id: 5, name: "Victor"},
     ]
 
-    let messagesData = [
+    let messages = [
         {id: 1, message: "Hello"},
         {id: 2, message: "How are you road in Incubator?"},
         {id: 3, message: "Yo"},
@@ -46,17 +46,19 @@ export const Dialogs = () => {
         // {id: 5, message: "Victor"},
     ]
 
+    let dialogsElements = dialogs
+        .map((dialog) => <DialogItem name={dialog.name} id={dialog.id}/>);
+
+    let messagesElemetns = messages
+        .map((m) => <Message message={m.message}/>)
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialog_item}>
-                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
-                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
-
+                {dialogsElements}
             </div>
             <div className={s.messages}>
-                <Message message={messagesData[0].message}/>
-                <Message message={messagesData[1].message}/>
-                <Message message="Yo"/>
+                {messagesElemetns}
             </div>
         </div>
     );
