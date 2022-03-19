@@ -9,6 +9,11 @@ import {News} from "./components/News/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Settings/Settings";
 
+let ProfilePage = () => <Profile/>
+let DialogsPage = () => <Dialogs/>
+let NewsPage = () => <News/>
+let MusicPage = () => <Music/>
+let SettingsPage = () => <Settings/>
 
 const App = () => {
     return (
@@ -17,11 +22,11 @@ const App = () => {
                 <Header/>
                 <Navbar/>
                 <div className='wrapper_content'>
-                    <Route path='/profile' component={Profile}/>
-                    <Route path='/dialogs' component={Dialogs}/>
-                    <Route path='/news' component={News}/>
-                    <Route path='/music' component={Music}/>
-                    <Route path='/settings' component={Settings}/>
+                    <Route path='/profile' render={ProfilePage}/>
+                    <Route path='/dialogs' render={DialogsPage}/>
+                    <Route path='/news' render={NewsPage}/>
+                    <Route path='/music' render={MusicPage}/>
+                    <Route path='/settings' render={SettingsPage}/>
                 </div>
             </div>
         </BrowserRouter>
