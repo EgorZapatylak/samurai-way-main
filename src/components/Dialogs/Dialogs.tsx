@@ -4,14 +4,14 @@ import s from "./Dialogs.module.css"
 
 type DialogPropsType = {
     name: string
-    id: string
+    id: number
 }
 
 type MessagePropsType = {
     message: string
 }
 
-const DialogItem = (props:DialogPropsType) => {
+const DialogItem = (props:any) => {
 
     let path = "/dialogs/" + props.id;
 
@@ -22,25 +22,40 @@ const DialogItem = (props:DialogPropsType) => {
     )
 }
 
-const Message = (props: MessagePropsType) => {
+const Message = (props:any) => {
     return (
         <div className={s.message}>{props.message}</div>
     )
 }
 
 export const Dialogs = () => {
+
+    let dialogsData = [
+        {id: 1, name: "Dimych"},
+        {id: 2, name: "Andrey"},
+        {id: 3, name: "Sveta"},
+        {id: 4, name: "Igor"},
+        {id: 5, name: "Victor"},
+    ]
+
+    let messagesData = [
+        {id: 1, message: "Hello"},
+        {id: 2, message: "How are you road in Incubator?"},
+        {id: 3, message: "Yo"},
+        // {id: 4, message: "Igor"},
+        // {id: 5, message: "Victor"},
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialog_item}>
-                <DialogItem name="Dimych" id="1"/>
-                <DialogItem name="Andrey" id="2"/>
-                <DialogItem name="Sveta" id="3"/>
-                <DialogItem name="Igor" id="4"/>
-                <DialogItem name="Victor" id="5"/>
+                <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+                <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+
             </div>
             <div className={s.messages}>
-                <Message message="Hello"/>
-                <Message message="How are you road in Incubator?"/>
+                <Message message={messagesData[0].message}/>
+                <Message message={messagesData[1].message}/>
                 <Message message="Yo"/>
             </div>
         </div>
