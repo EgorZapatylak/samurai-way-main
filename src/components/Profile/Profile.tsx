@@ -1,16 +1,12 @@
 import React from "react";
 import s from "./Profile.module.css";
 import {MyPosts} from "./MyPosts/MyPosts";
+import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
 
- export const Profile = () => {
+export const Profile = () => {
     return (
         <div>
-            <div>
-                <img className={s.back} src="https://catherineasquithgallery.com/uploads/posts/2021-02/1612616622_30-p-fon-polinnogo-tsveta-37.jpg"/>
-            </div>
-            <div>
-                Ava + description
-            </div>
+            <ProfileInfo/>
             <MyPosts/>
         </div>
     )
