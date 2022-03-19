@@ -1,0 +1,12 @@
+.back {
+    height: 240px;
+    width: 100%;
+}
+
+.item {
+    color: green;
+}
+
+.description_profile {
+    padding: 10px;
+}
