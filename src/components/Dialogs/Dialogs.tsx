@@ -23,6 +23,8 @@ export const Dialogs = (props: DialogsPropsType) => {
             <div className={s.messages}>
                 {messagesElemetns}
             </div>
+            <textarea>
+            </textarea>
         </div>
     );
 };
