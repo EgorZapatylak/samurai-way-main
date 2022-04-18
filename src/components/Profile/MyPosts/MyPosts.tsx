@@ -1,11 +1,12 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
-import {ProfilePageType} from "../../../Redux/State";
+import {ProfilePageType, State} from "../../../Redux/State";
 
 type MyPostsPropsType = {
     posts: ProfilePageType
     addPost: (post: string) => void
+    onPostChange: (newPostTest: string) => void
 }
 
 export const MyPosts = (props: MyPostsPropsType) => {
@@ -17,8 +18,15 @@ export const MyPosts = (props: MyPostsPropsType) => {
     const addPost = () => {
         if (newPostElement.current) {
             props.addPost(newPostElement.current.value);
+            props.posts.newPostText = "";
         }
     }
+
+    const onPostChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    props.onPostChange(e.currentTarget.value);
+    }
+
+
 
     return (
         <div className={s.postsBlock}>
@@ -26,7 +34,7 @@ export const MyPosts = (props: MyPostsPropsType) => {
                 <h3>My post</h3>
                 <div>
                     <div>
-                        <textarea ref={newPostElement}></textarea>
+                        <textarea ref={newPostElement} onChange={onPostChange} value={props.posts.newPostText}/>
                     </div>
                     <div>
                         <button onClick={addPost}>Add post</button>
